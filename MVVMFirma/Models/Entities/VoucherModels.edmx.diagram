@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9c1dd89bc2843f4a1dac742e1b366e5" Name="Diagram1">
+        <EntityTypeShape EntityType="VoucherShopModel.AppSettings" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.CustomerPreferences" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Customers" Width="1.5" PointX="3.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.DiscountCodes" Width="1.5" PointX="6" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Notifications" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.OrderDiscounts" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.OrderItems" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Orders" Width="1.5" PointX="6" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Payments" Width="1.5" PointX="8.25" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.UserLoginHistory" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Users" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.VoucherCategories" Width="1.5" PointX="3.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.VoucherHistory" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.VoucherReviews" Width="1.5" PointX="11.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VoucherShopModel.Vouchers" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="VoucherShopModel.FK__CustomerP__Custo__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__Orders__Customer__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__VoucherRe__Custo__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__OrderDisc__CodeI__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__Notificat__UserI__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__OrderDisc__Order__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__OrderItem__Order__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__OrderItem__Vouch__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__Payments__OrderI__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__UserLogin__UserI__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__VoucherHi__Chang__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__Vouchers__Create__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__Vouchers__Catego__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__VoucherHi__Vouch__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="VoucherShopModel.FK__VoucherRe__Vouch__60A75C0F" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

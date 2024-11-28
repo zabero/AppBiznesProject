@@ -1,0 +1,1048 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="VoucherShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppSettings">
+          <Key>
+            <PropertyRef Name="SettingKey" />
+          </Key>
+          <Property Name="SettingKey" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="SettingValue" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerPreferences">
+          <Key>
+            <PropertyRef Name="PreferenceID" />
+          </Key>
+          <Property Name="PreferenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="PreferenceKey" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PreferenceValue" Type="text" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="15" />
+          <Property Name="Address" Type="varchar" MaxLength="255" />
+          <Property Name="CreatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DiscountCodes">
+          <Key>
+            <PropertyRef Name="CodeID" />
+          </Key>
+          <Property Name="CodeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiscountPercentage" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ExpiryDate" Type="date" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Message" Type="text" Nullable="false" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="CreatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OrderDiscounts">
+          <Key>
+            <PropertyRef Name="OrderDiscountID" />
+          </Key>
+          <Property Name="OrderDiscountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CodeID" Type="int" Nullable="false" />
+          <Property Name="DiscountAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="VoucherID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="TotalPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="PaymentDate" Type="datetime" />
+          <Property Name="PaymentAmount" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="PaymentStatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserLoginHistory">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="LoginTime" Type="datetime" />
+          <Property Name="IPAddress" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PasswordHash" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VoucherCategories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+        </EntityType>
+        <EntityType Name="VoucherHistory">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoucherID" Type="int" Nullable="false" />
+          <Property Name="ChangeDescription" Type="text" Nullable="false" />
+          <Property Name="ChangedAt" Type="datetime" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VoucherReviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoucherID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="Rating" Type="int" />
+          <Property Name="ReviewText" Type="text" />
+          <Property Name="CreatedAt" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Vouchers">
+          <Key>
+            <PropertyRef Name="VoucherID" />
+          </Key>
+          <Property Name="VoucherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExpiryDate" Type="date" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CustomerP__Custo__71D1E811">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerPreferences" Type="Self.CustomerPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerPreferences">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__6EF57B66">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDisc__CodeI__5BE2A6F2">
+          <End Role="DiscountCodes" Type="Self.DiscountCodes" Multiplicity="1" />
+          <End Role="OrderDiscounts" Type="Self.OrderDiscounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCodes">
+              <PropertyRef Name="CodeID" />
+            </Principal>
+            <Dependent Role="OrderDiscounts">
+              <PropertyRef Name="CodeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDisc__Order__5AEE82B9">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderDiscounts" Type="Self.OrderDiscounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDiscounts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Order__4CA06362">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Vouch__4D94879B">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Customer__49C3F6B7">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payments__OrderI__534D60F1">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserLogin__UserI__6A30C649">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserLoginHistory" Type="Self.UserLoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLoginHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherHi__Chang__66603565">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="VoucherHistory" Type="Self.VoucherHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="VoucherHistory">
+              <PropertyRef Name="ChangedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherHi__Vouch__656C112C">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="VoucherHistory" Type="Self.VoucherHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="VoucherHistory">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherRe__Custo__619B8048">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="VoucherReviews" Type="Self.VoucherReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="VoucherReviews">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherRe__Vouch__60A75C0F">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="VoucherReviews" Type="Self.VoucherReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="VoucherReviews">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vouchers__Catego__4316F928">
+          <End Role="VoucherCategories" Type="Self.VoucherCategories" Multiplicity="0..1" />
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VoucherCategories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vouchers__Create__440B1D61">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VoucherShopModelStoreContainer">
+          <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerPreferences" EntityType="Self.CustomerPreferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DiscountCodes" EntityType="Self.DiscountCodes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderDiscounts" EntityType="Self.OrderDiscounts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLoginHistory" EntityType="Self.UserLoginHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherCategories" EntityType="Self.VoucherCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherHistory" EntityType="Self.VoucherHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherReviews" EntityType="Self.VoucherReviews" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CustomerP__Custo__71D1E811" Association="Self.FK__CustomerP__Custo__71D1E811">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerPreferences" EntitySet="CustomerPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__6EF57B66" Association="Self.FK__Notificat__UserI__6EF57B66">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDisc__CodeI__5BE2A6F2" Association="Self.FK__OrderDisc__CodeI__5BE2A6F2">
+            <End Role="DiscountCodes" EntitySet="DiscountCodes" />
+            <End Role="OrderDiscounts" EntitySet="OrderDiscounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDisc__Order__5AEE82B9" Association="Self.FK__OrderDisc__Order__5AEE82B9">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDiscounts" EntitySet="OrderDiscounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Order__4CA06362" Association="Self.FK__OrderItem__Order__4CA06362">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Vouch__4D94879B" Association="Self.FK__OrderItem__Vouch__4D94879B">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Customer__49C3F6B7" Association="Self.FK__Orders__Customer__49C3F6B7">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payments__OrderI__534D60F1" Association="Self.FK__Payments__OrderI__534D60F1">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserLogin__UserI__6A30C649" Association="Self.FK__UserLogin__UserI__6A30C649">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLoginHistory" EntitySet="UserLoginHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherHi__Chang__66603565" Association="Self.FK__VoucherHi__Chang__66603565">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="VoucherHistory" EntitySet="VoucherHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherHi__Vouch__656C112C" Association="Self.FK__VoucherHi__Vouch__656C112C">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="VoucherHistory" EntitySet="VoucherHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherRe__Custo__619B8048" Association="Self.FK__VoucherRe__Custo__619B8048">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="VoucherReviews" EntitySet="VoucherReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherRe__Vouch__60A75C0F" Association="Self.FK__VoucherRe__Vouch__60A75C0F">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="VoucherReviews" EntitySet="VoucherReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vouchers__Catego__4316F928" Association="Self.FK__Vouchers__Catego__4316F928">
+            <End Role="VoucherCategories" EntitySet="VoucherCategories" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vouchers__Create__440B1D61" Association="Self.FK__Vouchers__Create__440B1D61">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VoucherShopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppSettings">
+          <Key>
+            <PropertyRef Name="SettingKey" />
+          </Key>
+          <Property Name="SettingKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerPreferences">
+          <Key>
+            <PropertyRef Name="PreferenceID" />
+          </Key>
+          <Property Name="PreferenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="PreferenceKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PreferenceValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__CustomerP__Custo__71D1E811" FromRole="CustomerPreferences" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="CustomerPreferences" Relationship="Self.FK__CustomerP__Custo__71D1E811" FromRole="Customers" ToRole="CustomerPreferences" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__49C3F6B7" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="VoucherReviews" Relationship="Self.FK__VoucherRe__Custo__619B8048" FromRole="Customers" ToRole="VoucherReviews" />
+        </EntityType>
+        <EntityType Name="DiscountCodes">
+          <Key>
+            <PropertyRef Name="CodeID" />
+          </Key>
+          <Property Name="CodeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DiscountPercentage" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="OrderDiscounts" Relationship="Self.FK__OrderDisc__CodeI__5BE2A6F2" FromRole="DiscountCodes" ToRole="OrderDiscounts" />
+        </EntityType>
+        <EntityType Name="Notifications">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Notificat__UserI__6EF57B66" FromRole="Notifications" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="OrderDiscounts">
+          <Key>
+            <PropertyRef Name="OrderDiscountID" />
+          </Key>
+          <Property Name="OrderDiscountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CodeID" Type="Int32" Nullable="false" />
+          <Property Name="DiscountAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="DiscountCodes" Relationship="Self.FK__OrderDisc__CodeI__5BE2A6F2" FromRole="OrderDiscounts" ToRole="DiscountCodes" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrderDisc__Order__5AEE82B9" FromRole="OrderDiscounts" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemID" />
+          </Key>
+          <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrderItem__Order__4CA06362" FromRole="OrderItems" ToRole="Orders" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK__OrderItem__Vouch__4D94879B" FromRole="OrderItems" ToRole="Vouchers" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__Orders__Customer__49C3F6B7" FromRole="Orders" ToRole="Customers" />
+          <NavigationProperty Name="OrderDiscounts" Relationship="Self.FK__OrderDisc__Order__5AEE82B9" FromRole="Orders" ToRole="OrderDiscounts" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__Order__4CA06362" FromRole="Orders" ToRole="OrderItems" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK__Payments__OrderI__534D60F1" FromRole="Orders" ToRole="Payments" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="PaymentDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentAmount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PaymentStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Payments__OrderI__534D60F1" FromRole="Payments" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="UserLoginHistory">
+          <Key>
+            <PropertyRef Name="LoginID" />
+          </Key>
+          <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="LoginTime" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__UserLogin__UserI__6A30C649" FromRole="UserLoginHistory" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__UserI__6EF57B66" FromRole="Users" ToRole="Notifications" />
+          <NavigationProperty Name="UserLoginHistory" Relationship="Self.FK__UserLogin__UserI__6A30C649" FromRole="Users" ToRole="UserLoginHistory" />
+          <NavigationProperty Name="VoucherHistory" Relationship="Self.FK__VoucherHi__Chang__66603565" FromRole="Users" ToRole="VoucherHistory" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK__Vouchers__Create__440B1D61" FromRole="Users" ToRole="Vouchers" />
+        </EntityType>
+        <EntityType Name="VoucherCategories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK__Vouchers__Catego__4316F928" FromRole="VoucherCategories" ToRole="Vouchers" />
+        </EntityType>
+        <EntityType Name="VoucherHistory">
+          <Key>
+            <PropertyRef Name="HistoryID" />
+          </Key>
+          <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoucherID" Type="Int32" Nullable="false" />
+          <Property Name="ChangeDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChangedAt" Type="DateTime" Precision="3" />
+          <Property Name="ChangedBy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__VoucherHi__Chang__66603565" FromRole="VoucherHistory" ToRole="Users" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK__VoucherHi__Vouch__656C112C" FromRole="VoucherHistory" ToRole="Vouchers" />
+        </EntityType>
+        <EntityType Name="VoucherReviews">
+          <Key>
+            <PropertyRef Name="ReviewID" />
+          </Key>
+          <Property Name="ReviewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoucherID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="Rating" Type="Int32" />
+          <Property Name="ReviewText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Customers" Relationship="Self.FK__VoucherRe__Custo__619B8048" FromRole="VoucherReviews" ToRole="Customers" />
+          <NavigationProperty Name="Vouchers" Relationship="Self.FK__VoucherRe__Vouch__60A75C0F" FromRole="VoucherReviews" ToRole="Vouchers" />
+        </EntityType>
+        <EntityType Name="Vouchers">
+          <Key>
+            <PropertyRef Name="VoucherID" />
+          </Key>
+          <Property Name="VoucherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ExpiryDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__Vouch__4D94879B" FromRole="Vouchers" ToRole="OrderItems" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Vouchers__Create__440B1D61" FromRole="Vouchers" ToRole="Users" />
+          <NavigationProperty Name="VoucherCategories" Relationship="Self.FK__Vouchers__Catego__4316F928" FromRole="Vouchers" ToRole="VoucherCategories" />
+          <NavigationProperty Name="VoucherHistory" Relationship="Self.FK__VoucherHi__Vouch__656C112C" FromRole="Vouchers" ToRole="VoucherHistory" />
+          <NavigationProperty Name="VoucherReviews" Relationship="Self.FK__VoucherRe__Vouch__60A75C0F" FromRole="Vouchers" ToRole="VoucherReviews" />
+        </EntityType>
+        <Association Name="FK__CustomerP__Custo__71D1E811">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="CustomerPreferences" Type="Self.CustomerPreferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="CustomerPreferences">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Customer__49C3F6B7">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherRe__Custo__619B8048">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="VoucherReviews" Type="Self.VoucherReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="VoucherReviews">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDisc__CodeI__5BE2A6F2">
+          <End Role="DiscountCodes" Type="Self.DiscountCodes" Multiplicity="1" />
+          <End Role="OrderDiscounts" Type="Self.OrderDiscounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiscountCodes">
+              <PropertyRef Name="CodeID" />
+            </Principal>
+            <Dependent Role="OrderDiscounts">
+              <PropertyRef Name="CodeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__UserI__6EF57B66">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Notifications">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderDisc__Order__5AEE82B9">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderDiscounts" Type="Self.OrderDiscounts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderDiscounts">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Order__4CA06362">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Vouch__4D94879B">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Payments__OrderI__534D60F1">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderID" />
+            </Principal>
+            <Dependent Role="Payments">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserLogin__UserI__6A30C649">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UserLoginHistory" Type="Self.UserLoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserLoginHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherHi__Chang__66603565">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="VoucherHistory" Type="Self.VoucherHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="VoucherHistory">
+              <PropertyRef Name="ChangedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vouchers__Create__440B1D61">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Vouchers__Catego__4316F928">
+          <End Role="VoucherCategories" Type="Self.VoucherCategories" Multiplicity="0..1" />
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VoucherCategories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Vouchers">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherHi__Vouch__656C112C">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="VoucherHistory" Type="Self.VoucherHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="VoucherHistory">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VoucherRe__Vouch__60A75C0F">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="1" />
+          <End Role="VoucherReviews" Type="Self.VoucherReviews" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="VoucherID" />
+            </Principal>
+            <Dependent Role="VoucherReviews">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VoucherShopEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppSettings" EntityType="Self.AppSettings" />
+          <EntitySet Name="CustomerPreferences" EntityType="Self.CustomerPreferences" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="DiscountCodes" EntityType="Self.DiscountCodes" />
+          <EntitySet Name="Notifications" EntityType="Self.Notifications" />
+          <EntitySet Name="OrderDiscounts" EntityType="Self.OrderDiscounts" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Payments" EntityType="Self.Payments" />
+          <EntitySet Name="UserLoginHistory" EntityType="Self.UserLoginHistory" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="VoucherCategories" EntityType="Self.VoucherCategories" />
+          <EntitySet Name="VoucherHistory" EntityType="Self.VoucherHistory" />
+          <EntitySet Name="VoucherReviews" EntityType="Self.VoucherReviews" />
+          <EntitySet Name="Vouchers" EntityType="Self.Vouchers" />
+          <AssociationSet Name="FK__CustomerP__Custo__71D1E811" Association="Self.FK__CustomerP__Custo__71D1E811">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="CustomerPreferences" EntitySet="CustomerPreferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Customer__49C3F6B7" Association="Self.FK__Orders__Customer__49C3F6B7">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherRe__Custo__619B8048" Association="Self.FK__VoucherRe__Custo__619B8048">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="VoucherReviews" EntitySet="VoucherReviews" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDisc__CodeI__5BE2A6F2" Association="Self.FK__OrderDisc__CodeI__5BE2A6F2">
+            <End Role="DiscountCodes" EntitySet="DiscountCodes" />
+            <End Role="OrderDiscounts" EntitySet="OrderDiscounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__UserI__6EF57B66" Association="Self.FK__Notificat__UserI__6EF57B66">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Notifications" EntitySet="Notifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderDisc__Order__5AEE82B9" Association="Self.FK__OrderDisc__Order__5AEE82B9">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderDiscounts" EntitySet="OrderDiscounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Order__4CA06362" Association="Self.FK__OrderItem__Order__4CA06362">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Vouch__4D94879B" Association="Self.FK__OrderItem__Vouch__4D94879B">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Payments__OrderI__534D60F1" Association="Self.FK__Payments__OrderI__534D60F1">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="Payments" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserLogin__UserI__6A30C649" Association="Self.FK__UserLogin__UserI__6A30C649">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLoginHistory" EntitySet="UserLoginHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherHi__Chang__66603565" Association="Self.FK__VoucherHi__Chang__66603565">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="VoucherHistory" EntitySet="VoucherHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vouchers__Create__440B1D61" Association="Self.FK__Vouchers__Create__440B1D61">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Vouchers__Catego__4316F928" Association="Self.FK__Vouchers__Catego__4316F928">
+            <End Role="VoucherCategories" EntitySet="VoucherCategories" />
+            <End Role="Vouchers" EntitySet="Vouchers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherHi__Vouch__656C112C" Association="Self.FK__VoucherHi__Vouch__656C112C">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="VoucherHistory" EntitySet="VoucherHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VoucherRe__Vouch__60A75C0F" Association="Self.FK__VoucherRe__Vouch__60A75C0F">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="VoucherReviews" EntitySet="VoucherReviews" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VoucherShopModelStoreContainer" CdmEntityContainer="VoucherShopEntities">
+          <EntitySetMapping Name="AppSettings">
+            <EntityTypeMapping TypeName="VoucherShopModel.AppSettings">
+              <MappingFragment StoreEntitySet="AppSettings">
+                <ScalarProperty Name="SettingKey" ColumnName="SettingKey" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerPreferences">
+            <EntityTypeMapping TypeName="VoucherShopModel.CustomerPreferences">
+              <MappingFragment StoreEntitySet="CustomerPreferences">
+                <ScalarProperty Name="PreferenceID" ColumnName="PreferenceID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="PreferenceKey" ColumnName="PreferenceKey" />
+                <ScalarProperty Name="PreferenceValue" ColumnName="PreferenceValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="VoucherShopModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DiscountCodes">
+            <EntityTypeMapping TypeName="VoucherShopModel.DiscountCodes">
+              <MappingFragment StoreEntitySet="DiscountCodes">
+                <ScalarProperty Name="CodeID" ColumnName="CodeID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="VoucherShopModel.Notifications">
+              <MappingFragment StoreEntitySet="Notifications">
+                <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderDiscounts">
+            <EntityTypeMapping TypeName="VoucherShopModel.OrderDiscounts">
+              <MappingFragment StoreEntitySet="OrderDiscounts">
+                <ScalarProperty Name="OrderDiscountID" ColumnName="OrderDiscountID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CodeID" ColumnName="CodeID" />
+                <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="VoucherShopModel.OrderItems">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="OrderItemID" ColumnName="OrderItemID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="VoucherShopModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="VoucherShopModel.Payments">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+                <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="PaymentStatus" ColumnName="PaymentStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLoginHistory">
+            <EntityTypeMapping TypeName="VoucherShopModel.UserLoginHistory">
+              <MappingFragment StoreEntitySet="UserLoginHistory">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="VoucherShopModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherCategories">
+            <EntityTypeMapping TypeName="VoucherShopModel.VoucherCategories">
+              <MappingFragment StoreEntitySet="VoucherCategories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherHistory">
+            <EntityTypeMapping TypeName="VoucherShopModel.VoucherHistory">
+              <MappingFragment StoreEntitySet="VoucherHistory">
+                <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="ChangeDescription" ColumnName="ChangeDescription" />
+                <ScalarProperty Name="ChangedAt" ColumnName="ChangedAt" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherReviews">
+            <EntityTypeMapping TypeName="VoucherShopModel.VoucherReviews">
+              <MappingFragment StoreEntitySet="VoucherReviews">
+                <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vouchers">
+            <EntityTypeMapping TypeName="VoucherShopModel.Vouchers">
+              <MappingFragment StoreEntitySet="Vouchers">
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ExpiryDate" ColumnName="ExpiryDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
