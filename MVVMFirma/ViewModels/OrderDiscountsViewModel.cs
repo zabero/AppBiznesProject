@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class OrderDiscountsViewModel
+    public class OrderDiscountsViewModel : WorkspaceViewModel
     {
+        public OrderDiscountsViewModel()
+        {
+            base.DisplayName = "Rabaty";
+        }
     }
 }

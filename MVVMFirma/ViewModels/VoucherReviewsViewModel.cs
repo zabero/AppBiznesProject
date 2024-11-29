@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class VoucherReviewsViewModel
+    public class VoucherReviewsViewModel : WorkspaceViewModel
     {
+        public VoucherReviewsViewModel()
+        {
+            base.DisplayName = "Recenzje voucherów";
+        }
     }
 }

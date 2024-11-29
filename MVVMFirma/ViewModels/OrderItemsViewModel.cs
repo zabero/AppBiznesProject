@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class OrderItemsViewModel
+    public class OrderItemsViewModel : WorkspaceViewModel
     {
+        public OrderItemsViewModel()
+        {
+            base.DisplayName = "Pozycje w zamówieniach";
+        }
     }
 }

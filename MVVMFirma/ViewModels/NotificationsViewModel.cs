@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class NotificationsViewModel
+    public class NotificationsViewModel : WorkspaceViewModel
     {
+        public NotificationsViewModel()
+        {
+            base.DisplayName = "Powiadomienia";
+        }
     }
 }

@@ -4,9 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace MVVMFirma.ViewModels
 {
-    internal class VouchersViewModel
+    public class VouchersViewModel : WorkspaceViewModel
     {
+        public VouchersViewModel()
+        {
+            base.DisplayName = "Zarzadzanie voucherami";
+        }
     }
 }

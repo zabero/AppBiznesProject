@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class PaymentsViewModel
+    public class PaymentsViewModel : WorkspaceViewModel
     {
+        public PaymentsViewModel()
+        {
+            base.DisplayName = "Płatności";
+        }
     }
 }

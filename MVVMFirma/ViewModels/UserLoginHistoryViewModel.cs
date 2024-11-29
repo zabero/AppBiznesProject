@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class UserLoginHistoryViewModel
+    public class UserLoginHistoryViewModel : WorkspaceViewModel
     {
+        public UserLoginHistoryViewModel()
+        {
+            base.DisplayName = "Historia logowań urzytkowników";
+        }
     }
 }

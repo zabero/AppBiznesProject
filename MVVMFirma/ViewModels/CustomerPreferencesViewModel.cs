@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class CustomerPreferencesViewModel
+    public class CustomerPreferencesViewModel:WorkspaceViewModel
     {
+        public CustomerPreferencesViewModel()
+        {
+            base.DisplayName = "Preferencje kupujących";
+        }
     }
 }

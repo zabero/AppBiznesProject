@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    internal class VoucherHistoryViewModel
+    public class VoucherHistoryViewModel : WorkspaceViewModel
     {
+        public VoucherHistoryViewModel()
+        {
+            base.DisplayName = "Kategorie zmian w Voucherach";
+        }
     }
 }
