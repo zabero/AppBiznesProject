@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for AppSettingsView.xaml
     /// </summary>
-    public partial class AppSettingsView : UserControl
+    public partial class AppSettingsView : GetAllDataView
     {
         public AppSettingsView()
         {

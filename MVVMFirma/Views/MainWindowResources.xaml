@@ -3,14 +3,36 @@
                     xmlns:vm="clr-namespace:MVVMFirma.ViewModels"
                     xmlns:vw="clr-namespace:MVVMFirma.Views"
                     >
-    <DataTemplate DataType="{x:Type vm:WszystkieTowaryViewModel}">
-        <vw:WszystkieTowaryView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type vm:NowyTowarViewModel}">
-        <vw:NowyTowarView/>
-    </DataTemplate>
+
     <DataTemplate DataType="{x:Type vm:AppSettingsViewModel}">
         <vw:AppSettingsView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:AppSettingsAddViewModel}">
+        <vw:AppSettingAddView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:CustomersViewModel}">
+        <vw:CustomersView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:CustomersAddViewModel}">
+        <vw:CustomersAddView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UsersViewModel}">
+        <vw:UsersView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:UserAddViewModel}">
+        <vw:UserAddView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:VoucherCategoriesViewModel}">
+        <vw:VoucherCategoriesView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:VoucherCategoriesAddViewModel}">
+        <vw:VoucherCategoriesAddView/>
     </DataTemplate>
 
 

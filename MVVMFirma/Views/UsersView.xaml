@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MVVMFirma.Views.UsersView"
+﻿<local:GetAllDataView x:Class="MVVMFirma.Views.UsersView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -19,16 +19,18 @@
             </Grid.RowDefinitions>
 
             <!-- Lista użytkowników -->
-            <DataGrid Grid.Row="0" ItemsSource="{Binding Users}"
+            <DataGrid Grid.Row="0" ItemsSource="{Binding List}"
                       AutoGenerateColumns="False" 
                       Background="White" 
                       BorderBrush="#ddd"
                       BorderThickness="1"
                       CanUserAddRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Username" Binding="{Binding Username}" Width="*" />
-                    <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="200" />
-                    <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" Width="200" />
+                    <DataGridTextColumn Header="ID" Binding="{Binding UserID}" Width="auto" />
+                    <DataGridTextColumn Header="Nazwa Użytkownika" Binding="{Binding Username}" Width="auto" />
+                    <DataGridTextColumn Header="Hashowanie" Binding="{Binding PasswordHash}" Width="auto" />
+                    <DataGridTextColumn Header="Rola" Binding="{Binding Role}" Width="auto" />
+                    <DataGridTextColumn Header="Utworzony" Binding="{Binding CreatedAt}" Width="auto" />
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -40,4 +42,4 @@
             </StackPanel>
         </Grid>
     </Grid>
-</UserControl>
+</local:GetAllDataView>

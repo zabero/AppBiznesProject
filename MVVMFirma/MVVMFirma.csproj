@@ -132,12 +132,16 @@
     <Compile Include="Models\Entities\Vouchers.cs">
       <DependentUpon>VoucherModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AddDataToTable.cs" />
+    <Compile Include="ViewModels\AppSettingsAddViewModel.cs" />
     <Compile Include="ViewModels\AppSettingsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
     <Compile Include="ViewModels\CustomerPreferencesViewModel.cs" />
+    <Compile Include="ViewModels\CustomersAddViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
     <Compile Include="ViewModels\DiscountCodesViewModel.cs" />
+    <Compile Include="ViewModels\GetDataFromTable.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NotificationsViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
@@ -145,19 +149,28 @@
     <Compile Include="ViewModels\OrderItemsViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
     <Compile Include="ViewModels\PaymentsViewModel.cs" />
+    <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserLoginHistoryViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="ViewModels\VoucherCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\VoucherCategoriesAddViewModel.cs" />
     <Compile Include="ViewModels\VoucherHistoryViewModel.cs" />
     <Compile Include="ViewModels\VoucherReviewsViewModel.cs" />
     <Compile Include="ViewModels\VouchersViewModel.cs" />
     <Compile Include="ViewModels\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\WszystkieTowaryViewModel.cs" />
+    <Compile Include="Views\AddDataView.cs" />
+    <Compile Include="Views\AppSettingAddView.xaml.cs">
+      <DependentUpon>AppSettingAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AppSettingsView.xaml.cs">
       <DependentUpon>AppSettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomerPreferencesView.xaml.cs">
       <DependentUpon>CustomerPreferencesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomersAddView.xaml.cs">
+      <DependentUpon>CustomersAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
@@ -165,6 +178,7 @@
     <Compile Include="Views\DiscountCodesView.xaml.cs">
       <DependentUpon>DiscountCodesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GetAllDataView.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -186,11 +200,17 @@
     <Compile Include="Views\PaymentsView.xaml.cs">
       <DependentUpon>PaymentsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UserAddView.xaml.cs">
+      <DependentUpon>UserAddView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserLoginHistoryView.xaml.cs">
       <DependentUpon>UserLoginHistoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VoucherCategoriesAddView.xaml.cs">
+      <DependentUpon>VoucherCategoriesAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VoucherCategoriesView.xaml.cs">
       <DependentUpon>VoucherCategoriesView.xaml</DependentUpon>
@@ -242,11 +262,23 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AppSettingAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AppSettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomerPreferencesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomersAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -290,11 +322,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\UserAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserLoginHistoryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VoucherCategoriesAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -36,15 +36,35 @@ namespace MVVMFirma.ViewModels
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
-                    "Towary",
-                    new BaseCommand(() => this.ShowAllTowar())),
+                    "Ustawienia",
+                    new BaseCommand(() => this.AddWorkspaceOne(new AppSettingsViewModel()))),
+                new CommandViewModel(
+                    "Dodaj ustawienie",
+                    new BaseCommand(() => this.AddWorkspaceOne(new AppSettingsAddViewModel()))),
 
                 new CommandViewModel(
-                    "Towar",
-                    new BaseCommand(() => this.CreateTowar())),
+                    "Klienci",
+                    new BaseCommand(() => this.AddWorkspaceOne(new CustomersViewModel()))),
+
                 new CommandViewModel(
-                    "Ustawienia",
-                    new BaseCommand(() => this.CreateAppSettings()))
+                    "Dodaj Klienta",
+                    new BaseCommand(() => this.AddWorkspaceOne(new CustomersAddViewModel()))),
+
+                new CommandViewModel(
+                    "Użytkownicy",
+                    new BaseCommand(() => this.AddWorkspaceOne(new UsersViewModel()))),
+
+                new CommandViewModel(
+                    "Dodaj użytkownika",
+                    new BaseCommand(() => this.AddWorkspaceOne(new UserAddViewModel()))),
+
+                new CommandViewModel(
+                    "Kategorie Voucherów",
+                    new BaseCommand(() => this.AddWorkspaceOne(new VoucherCategoriesViewModel()))),
+
+                new CommandViewModel(
+                    "Dodaj Kategorie Voucherów",
+                    new BaseCommand(() => this.AddWorkspaceOne(new VoucherCategoriesAddViewModel()))),
             };
         }
         #endregion
@@ -82,17 +102,18 @@ namespace MVVMFirma.ViewModels
         #endregion // Workspaces
 
         #region Private Helpers
-        private void CreateTowar()
+
+        private void AddWorkspaceOne(WorkspaceViewModel workspace)
         {
-            NowyTowarViewModel workspace = new NowyTowarViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
-        }
-        private void CreateAppSettings()
-        {
-            AppSettingsViewModel workspace = new AppSettingsViewModel();
-            this.Workspaces.Add(workspace);
-            this.SetActiveWorkspace(workspace);
+            var existingWorkspace = this.Workspaces.FirstOrDefault(w => w.GetType() == workspace.GetType());
+
+            if (existingWorkspace == null)
+            {
+                this.Workspaces.Add(workspace);
+                existingWorkspace = workspace;
+            }
+
+            this.SetActiveWorkspace(existingWorkspace);
         }
 
         private void ShowAllTowar()

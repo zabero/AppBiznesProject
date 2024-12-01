@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views
 {
     /// <summary>
-    /// Interaction logic for VoucherCategoriesView.xaml
+    /// Interaction logic for AppSettingAddView.xaml
     /// </summary>
-    public partial class VoucherCategoriesView : GetAllDataView
+    public partial class AppSettingAddView : AddDataView
     {
-        public VoucherCategoriesView()
+        public AppSettingAddView()
         {
             InitializeComponent();
         }

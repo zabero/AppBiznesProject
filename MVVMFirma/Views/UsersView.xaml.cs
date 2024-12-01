@@ -18,7 +18,7 @@ namespace MVVMFirma.Views
     /// <summary>
     /// Interaction logic for UsersView.xaml
     /// </summary>
-    public partial class UsersView : UserControl
+    public partial class UsersView : GetAllDataView
     {
         public UsersView()
         {
