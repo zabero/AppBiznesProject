@@ -35,6 +35,10 @@
         <vw:VoucherCategoriesAddView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:PaymentsViewModel}">
+        <vw:PaymentsView/>
+    </DataTemplate>
+
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">
         <Setter Property="HeaderTemplate">
@@ -104,9 +108,9 @@
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Margin="2,6">
-            <Hyperlink Command="{Binding Path=Command}">
+            <Button Command="{Binding Path=Command}">
               <TextBlock Text="{Binding Path=DisplayName}" />
-            </Hyperlink>
+            </Button>
           </TextBlock>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>

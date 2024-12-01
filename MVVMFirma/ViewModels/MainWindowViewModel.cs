@@ -19,6 +19,9 @@ namespace MVVMFirma.ViewModels
         #endregion
 
         #region Commands
+
+
+
         public ReadOnlyCollection<CommandViewModel> Commands
         {
             get
@@ -65,6 +68,11 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Dodaj Kategorie Voucherów",
                     new BaseCommand(() => this.AddWorkspaceOne(new VoucherCategoriesAddViewModel()))),
+                
+                new CommandViewModel(
+                    "Płatności",
+                    new BaseCommand(() => this.AddWorkspaceOne(new PaymentsViewModel()))),
+
             };
         }
         #endregion
@@ -116,19 +124,21 @@ namespace MVVMFirma.ViewModels
             this.SetActiveWorkspace(existingWorkspace);
         }
 
-        private void ShowAllTowar()
-        {
-            WszystkieTowaryViewModel workspace =
-                this.Workspaces.FirstOrDefault(vm => vm is WszystkieTowaryViewModel)
-                as WszystkieTowaryViewModel;
-            if (workspace == null)
-            {
-                workspace = new WszystkieTowaryViewModel();
-                this.Workspaces.Add(workspace);
-            }
 
-            this.SetActiveWorkspace(workspace);
-        }
+
+        //private void ShowAllTowar()
+        //{
+        //    WszystkieTowaryViewModel workspace =
+        //        this.Workspaces.FirstOrDefault(vm => vm is WszystkieTowaryViewModel)
+        //        as WszystkieTowaryViewModel;
+        //    if (workspace == null)
+        //    {
+        //        workspace = new WszystkieTowaryViewModel();
+        //        this.Workspaces.Add(workspace);
+        //    }
+
+        //    this.SetActiveWorkspace(workspace);
+        //}
         private void SetActiveWorkspace(WorkspaceViewModel workspace)
         {
             Debug.Assert(this.Workspaces.Contains(workspace));

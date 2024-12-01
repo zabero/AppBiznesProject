@@ -29,8 +29,13 @@
             <MenuItem Header="Program"/>
         </Menu>
         <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
-            <ToggleButton Width="32" Height="32" Background="Blue" Margin="2"/>
-            <ToggleButton Width="32" Height="32" Background="Yellow" Margin="2"/>
+            <!-- ToggleButton z ikoną -->
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding testmsg}">
+                <Image Source="/Views/icon1.png" Width="24" Height="24" />
+            </ToggleButton>
+            <ToggleButton Width="32" Height="32" Margin="2">
+                <Image Source="/Views/icon1.png" Width="24" Height="24" />
+            </ToggleButton>
         </ToolBar>
         <Border Grid.Row="2" Grid.Column="0">
             <HeaderedContentControl 
