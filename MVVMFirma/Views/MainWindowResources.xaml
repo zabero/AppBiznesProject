@@ -51,6 +51,10 @@
         <vw:NotificationsAddView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type vm:OrderDiscountsViewModel}">
+        <vw:OrderDiscountsView/>
+    </DataTemplate>
+
 
 
 

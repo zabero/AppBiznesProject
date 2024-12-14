@@ -89,6 +89,7 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\EntitiesForView\CustomerPreferencesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\NotificationsForAllViws.cs" />
+    <Compile Include="Models\EntitiesForView\OrderDiscountsForAllViews.cs" />
     <Compile Include="Models\Entities\AppSettings.cs">
       <DependentUpon>VoucherModels.tt</DependentUpon>
     </Compile>
