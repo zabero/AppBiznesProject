@@ -38,6 +38,20 @@
     <DataTemplate DataType="{x:Type vm:PaymentsViewModel}">
         <vw:PaymentsView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:CustomerPreferencesViewModel}">
+        <vw:CustomerPreferencesView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NotificationsViewModel}">
+        <vw:NotificationsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:NotificationsAddViewModel}">
+        <vw:NotificationsAddView/>
+    </DataTemplate>
+
+
 
 
     <Style x:Key="MainHCCStyle" TargetType="{x:Type HeaderedContentControl}">

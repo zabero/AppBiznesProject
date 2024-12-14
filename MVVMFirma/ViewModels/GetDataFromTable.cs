@@ -1,4 +1,5 @@
-﻿using MVVMFirma.Helper;
+﻿using GalaSoft.MvvmLight.Messaging;
+using MVVMFirma.Helper;
 using MVVMFirma.Models.Entities;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -11,7 +12,7 @@ namespace MVVMFirma.ViewModels
         protected readonly VoucherShopEntities _voucherShopEntities;
         #endregion
 
-        #region LoadCommand
+        #region Commands
         private BaseCommand _loadCommand;
         public ICommand LoadCommand
         {
@@ -22,6 +23,18 @@ namespace MVVMFirma.ViewModels
                 return _loadCommand;
             }
         }
+
+        private BaseCommand _addCommand;
+        public ICommand AddCommand
+        {
+            get
+            {
+                if (_addCommand == null)
+                    _addCommand = new BaseCommand(() => Add());
+                return _addCommand;
+            }
+        }
+
         #endregion
 
 
@@ -53,7 +66,15 @@ namespace MVVMFirma.ViewModels
 
         #region Helpers
         public abstract void Load();
+
+        public void Add()
+        {
+            Messenger.Default.Send(DisplayName + "Add");
+        }
         #endregion
+
+
+
 
     }
 }

@@ -30,7 +30,7 @@
         </Menu>
         <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
             <!-- ToggleButton z ikoną -->
-            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding testmsg}">
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ShowAppSettings}">
                 <Image Source="/Views/icon1.png" Width="24" Height="24" />
             </ToggleButton>
             <ToggleButton Width="32" Height="32" Margin="2">

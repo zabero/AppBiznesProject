@@ -8,6 +8,10 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
+using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Media;
+using System.Net.Security;
 
 namespace MVVMFirma.ViewModels
 {
@@ -34,8 +38,27 @@ namespace MVVMFirma.ViewModels
                 return _Commands;
             }
         }
+
+
+        private BaseCommand _showAppSettings;
+        public ICommand ShowAppSettings
+        {
+            get
+            {
+                if (_showAppSettings == null)
+                    _showAppSettings = new BaseCommand(() => AddWorkspaceOne(new AppSettingsViewModel()));
+                return _showAppSettings;
+            }
+        }
+
+
+         
+
         private List<CommandViewModel> CreateCommands()
         {
+            Messenger.Default.Register<string>(this, open);
+
+
             return new List<CommandViewModel>
             {
                 new CommandViewModel(
@@ -72,6 +95,12 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Płatności",
                     new BaseCommand(() => this.AddWorkspaceOne(new PaymentsViewModel()))),
+                new CommandViewModel(
+                    "Preferencje użytkownika",
+                    new BaseCommand(() => this.AddWorkspaceOne(new CustomerPreferencesViewModel()))),
+                new CommandViewModel(
+                    "Powiadomienia",
+                    new BaseCommand(() => this.AddWorkspaceOne(new NotificationsViewModel()))),
 
             };
         }
@@ -146,6 +175,16 @@ namespace MVVMFirma.ViewModels
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.Workspaces);
             if (collectionView != null)
                 collectionView.MoveCurrentTo(workspace);
+        }
+
+        private void open(string name)
+        {
+            if (name == "KlienciAdd")
+                this.AddWorkspaceOne(new CustomersAddViewModel());
+            if (name == "UstawieniaAdd")
+                this.AddWorkspaceOne(new AppSettingsAddViewModel());
+            if (name == "PowiadomieniaAdd")
+                this.AddWorkspaceOne(new NotificationsAddViewModel());
         }
         #endregion
     }
