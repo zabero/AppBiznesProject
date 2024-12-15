@@ -85,6 +85,7 @@ namespace MVVMFirma.ViewModels
             : base("Dodaj Powiadomienie")
         {
             item = new Notifications();
+            CreatedAt = DateTime.Now;
         }
         #endregion
 

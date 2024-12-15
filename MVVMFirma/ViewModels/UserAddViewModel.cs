@@ -80,6 +80,7 @@ namespace MVVMFirma.ViewModels
             : base("Dodaj użytkownika")
         {
             item = new Users();
+            CreatedAt = DateTime.Now;
         }
         #endregion
 

@@ -90,6 +90,7 @@
     <Compile Include="Models\EntitiesForView\CustomerPreferencesForAllView.cs" />
     <Compile Include="Models\EntitiesForView\NotificationsForAllViws.cs" />
     <Compile Include="Models\EntitiesForView\OrderDiscountsForAllViews.cs" />
+    <Compile Include="Models\EntitiesForView\PaymentsForAllViews.cs" />
     <Compile Include="Models\Entities\AppSettings.cs">
       <DependentUpon>VoucherModels.tt</DependentUpon>
     </Compile>
@@ -151,6 +152,7 @@
       <DependentUpon>VoucherModels.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddDataToTable.cs" />
+    <Compile Include="ViewModels\PaymentsAddViewModel.cs" />
     <Compile Include="ViewModels\AppSettingsAddViewModel.cs" />
     <Compile Include="ViewModels\AppSettingsViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -228,6 +230,9 @@
     </Compile>
     <Compile Include="Views\OrdersView.xaml.cs">
       <DependentUpon>OrdersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PaymentsAddView.xaml.cs">
+      <DependentUpon>PaymentsAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PaymentsView.xaml.cs">
       <DependentUpon>PaymentsView.xaml</DependentUpon>
@@ -362,6 +367,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PaymentsAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PaymentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -415,6 +424,8 @@
       <DependentUpon>VoucherModels.edmx</DependentUpon>
       <LastGenOutput>VoucherModels.cs</LastGenOutput>
     </Content>
+    <Resource Include="Views\users_50046.png" />
+    <Resource Include="Views\tools.510x512.png" />
     <Resource Include="Views\icon1.png" />
   </ItemGroup>
   <ItemGroup>

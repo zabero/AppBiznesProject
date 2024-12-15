@@ -27,7 +27,7 @@ namespace MVVMFirma.Models.Entities
         public string Username { get; set; }
         public string PasswordHash { get; set; }
         public string Role { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; } = DateTime.Now;
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notifications> Notifications { get; set; }

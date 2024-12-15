@@ -51,8 +51,19 @@ namespace MVVMFirma.ViewModels
             }
         }
 
+        private BaseCommand _showUsers;
+        public ICommand ShowUsers
+        {
+            get
+            {
+                if (_showAppSettings == null)
+                    _showAppSettings = new BaseCommand(() => AddWorkspaceOne(new UserAddViewModel()));
+                return _showAppSettings;
+            }
+        }
 
-         
+
+
 
         private List<CommandViewModel> CreateCommands()
         {
@@ -91,23 +102,26 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Dodaj Kategorie Voucherów",
                     new BaseCommand(() => this.AddWorkspaceOne(new VoucherCategoriesAddViewModel()))),
-                
-                new CommandViewModel(
-                    "Płatności",
-                    new BaseCommand(() => this.AddWorkspaceOne(new PaymentsViewModel()))),
+           
                 new CommandViewModel(
                     "Preferencje użytkownika",
                     new BaseCommand(() => this.AddWorkspaceOne(new CustomerPreferencesViewModel()))),
+
                 new CommandViewModel(
                     "Powiadomienia",
                     new BaseCommand(() => this.AddWorkspaceOne(new NotificationsViewModel()))),
+
                 new CommandViewModel(
                     "Rabaty",
                     new BaseCommand(() => this.AddWorkspaceOne(new OrderDiscountsViewModel()))),
+
                 new CommandViewModel(
                     "Kody rabatowe",
                     new BaseCommand(() => this.AddWorkspaceOne(new DiscountCodesViewModel()))),
 
+                new CommandViewModel(
+                    "Płatności",
+                    new BaseCommand(() => this.AddWorkspaceOne(new PaymentsViewModel()))),
             };
         }
         #endregion
@@ -193,8 +207,15 @@ namespace MVVMFirma.ViewModels
                 this.AddWorkspaceOne(new NotificationsAddViewModel());
             if (name == "RabatyAdd")
                 this.AddWorkspaceOne(new OrderDiscountsAddViewModel());
-            if (name == "Kody rabatoweAdd")
-                this.AddWorkspaceOne(new OrderDiscountsAddViewModel());
+            if (name == "Kody RabatoweAdd")
+                this.AddWorkspaceOne(new DiscountCodesAddViewModel());
+            if (name == "UżytkownicyAdd")
+                this.AddWorkspaceOne(new UserAddViewModel());
+            if (name == "Kategorie VoucherówAdd")
+                this.AddWorkspaceOne(new VoucherCategoriesAddViewModel());
+            if (name == "PłatnościAdd")
+                this.AddWorkspaceOne(new PaymentsAddViewModel());
+
         }
         #endregion
     }

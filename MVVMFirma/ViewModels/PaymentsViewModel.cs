@@ -1,4 +1,5 @@
 ﻿using MVVMFirma.Models.Entities;
+using MVVMFirma.Models.EntitiesForView;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,17 +9,27 @@ using System.Threading.Tasks;
 
 namespace MVVMFirma.ViewModels
 {
-    public class PaymentsViewModel : GetDataFromTable<Payments>
+    public class PaymentsViewModel : GetDataFromTable<PaymentsForAllViews>
     {
         public PaymentsViewModel() : base("Płatności") { }
         
 
-        public override void Load()
+       public override void Load()
         {
-            if (_voucherShopEntities.Customers.Any())
-                List = new ObservableCollection<Payments>(_voucherShopEntities.Payments.ToList());
-            else
-                List = new ObservableCollection<Payments>();
+            List = new ObservableCollection<PaymentsForAllViews>(
+            _voucherShopEntities.Payments.Select(c => new PaymentsForAllViews
+            {
+                PaymentID = c.PaymentID,
+                OrderID = c.OrderID,
+                PaymentDate = c.PaymentDate,
+                PaymentAmount = c.PaymentAmount,
+                PaymentStatus = c.PaymentStatus,
+                CustomerID = c.Orders.CustomerID,
+                TotalPrice = c.Orders.TotalPrice,
+                OrderDate = c.Orders.OrderDate,
+                Status = c.Orders.Status,
+
+            }));
         }
     }
 }

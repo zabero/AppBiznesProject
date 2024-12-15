@@ -10,47 +10,35 @@ namespace MVVMFirma.ViewModels
 { 
 public class OrderDiscountsAddViewModel : AddDataToTable<OrderDiscounts>
 {
-    #region Properties
-    //public int OrderDiscountID
-    //{
-    //    get
-    //    {
-    //        return item.OrderDiscountID;
-    //    }
-    //    set
-    //    {
-    //        item.OrderDiscountID = value;
-    //        OnPropertyChanged(() => OrderDiscountID);
-    //    }
-    //}
+        #region Properties
+ 
+        public int OrderID
+        {
+            get
+            {
+                return item.OrderID;
+            }
+            set
+            {
+                item.OrderID = value;
+                OnPropertyChanged(() => OrderID);
+            }
+        }
 
-    //public int OrderID
-    //{
-    //    get
-    //    {
-    //        return item.OrderID;
-    //    }
-    //    set
-    //    {
-    //        item.OrderID = value;
-    //        OnPropertyChanged(() => OrderID);
-    //    }
-    //}
+        public int CodeID
+        {
+            get
+            {
+                return item.CodeID;
+            }
+            set
+            {
+                item.CodeID = value;
+                OnPropertyChanged(() => CodeID);
+            }
+        }
 
-    //public int CodeID
-    //{
-    //    get
-    //    {
-    //        return item.CodeID;
-    //    }
-    //    set
-    //    {
-    //        item.CodeID = value;
-    //        OnPropertyChanged(() => CodeID);
-    //    }
-    //}
-
-    public decimal DiscountAmount
+        public decimal DiscountAmount
     {
         get
         {

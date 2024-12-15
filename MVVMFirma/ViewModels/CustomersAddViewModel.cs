@@ -107,6 +107,7 @@ namespace MVVMFirma.ViewModels
             : base("Dodaj Klienta")
         {
             item = new Customers();
+            CreatedAt = DateTime.Now;
         }
         #endregion
 

@@ -18,7 +18,7 @@ namespace MVVMFirma.Models.Entities
         public int UserID { get; set; }
         public string Message { get; set; }
         public Nullable<bool> IsRead { get; set; }
-        public Nullable<System.DateTime> CreatedAt { get; set; } = DateTime.Now;
+        public Nullable<System.DateTime> CreatedAt { get; set; }
     
         public virtual Users Users { get; set; }
     }

@@ -35,10 +35,6 @@
         <vw:VoucherCategoriesAddView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type vm:PaymentsViewModel}">
-        <vw:PaymentsView/>
-    </DataTemplate>
-    
     <DataTemplate DataType="{x:Type vm:CustomerPreferencesViewModel}">
         <vw:CustomerPreferencesView/>
     </DataTemplate>
@@ -66,6 +62,16 @@
     <DataTemplate DataType="{x:Type vm:DiscountCodesAddViewModel}">
         <vw:DiscountCodesAddView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:PaymentsViewModel}">
+        <vw:PaymentsView/>
+    </DataTemplate> 
+    
+    <DataTemplate DataType="{x:Type vm:PaymentsAddViewModel}">
+        <vw:PaymentsAddView/>
+    </DataTemplate>
+
+
 
 
 

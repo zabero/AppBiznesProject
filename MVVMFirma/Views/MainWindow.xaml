@@ -31,10 +31,10 @@
         <ToolBar Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Margin="2">
             <!-- ToggleButton z ikoną -->
             <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ShowAppSettings}">
-                <Image Source="/Views/icon1.png" Width="24" Height="24" />
+                <Image Source="/Views/tools.510x512.png" Width="24" Height="24" />
             </ToggleButton>
-            <ToggleButton Width="32" Height="32" Margin="2">
-                <Image Source="/Views/icon1.png" Width="24" Height="24" />
+            <ToggleButton Width="32" Height="32" Margin="2" Command="{Binding ShowUsers}">
+                <Image Source="/Views/users_50046.png" Width="24" Height="24" />
             </ToggleButton>
         </ToolBar>
         <Border Grid.Row="2" Grid.Column="0">

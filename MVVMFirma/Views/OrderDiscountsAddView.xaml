@@ -16,15 +16,21 @@
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="DiscountPercentage" />
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=[DiscountPercentage], UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Column="0" Grid.Row="0" Margin="0,8,0,8" Content="OrderID" />
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="0,8,0,8" Text="{Binding Path=OrderID, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="IsActive" />
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=IsActive, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Column="0" Grid.Row="1" Margin="0,8,0,8" Content="CodeID" />
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="0,8,0,8" Text="{Binding Path=CodeID, UpdateSourceTrigger=PropertyChanged}" />
 
-        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="ExpiryDate" />
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=ExpiryDate, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Column="0" Grid.Row="2" Margin="0,8,0,8" Content="DiscountAmount" />
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="0,8,0,8" Text="{Binding Path=DiscountAmount, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Grid.Column="0" Grid.Row="3" Margin="0,8,0,8" Content="IsActive" />
+        <CheckBox Grid.Column="1" Grid.Row="3" Margin="0,8,0,8" IsChecked="{Binding Path=IsActive, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
 
     </Grid>
 </local:AddDataView>
