@@ -25,7 +25,7 @@ namespace MVVMFirma.Models.Entities
         public int OrderID { get; set; }
         public int CustomerID { get; set; }
         public decimal TotalPrice { get; set; }
-        public Nullable<System.DateTime> OrderDate { get; set; }
+        public Nullable<System.DateTime> OrderDate { get; set; } =DateTime.Now;
         public string Status { get; set; }
     
         public virtual Customers Customers { get; set; }

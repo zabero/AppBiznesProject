@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MVVMFirma.Views
 {
     /// <summary>
-    /// Interaction logic for OrderDiscountsView.xaml
+    /// Interaction logic for OrderDiscountsAddView.xaml
     /// </summary>
-    public partial class OrderDiscountsView : GetAllDataView
+    public partial class OrderDiscountsAddView : AddDataView
     {
-        public OrderDiscountsView()
+        public OrderDiscountsAddView()
         {
             InitializeComponent();
         }

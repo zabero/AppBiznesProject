@@ -101,6 +101,9 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Powiadomienia",
                     new BaseCommand(() => this.AddWorkspaceOne(new NotificationsViewModel()))),
+                new CommandViewModel(
+                    "Rabaty",
+                    new BaseCommand(() => this.AddWorkspaceOne(new OrderDiscountsViewModel()))),
 
             };
         }
@@ -185,6 +188,8 @@ namespace MVVMFirma.ViewModels
                 this.AddWorkspaceOne(new AppSettingsAddViewModel());
             if (name == "PowiadomieniaAdd")
                 this.AddWorkspaceOne(new NotificationsAddViewModel());
+            if (name == "RabatyAdd")
+                this.AddWorkspaceOne(new OrderDiscountsAddViewModel());
         }
         #endregion
     }

@@ -164,6 +164,7 @@
     <Compile Include="ViewModels\NotificationsAddViewModel.cs" />
     <Compile Include="ViewModels\NotificationsViewModel.cs" />
     <Compile Include="ViewModels\NowyTowarViewModel.cs" />
+    <Compile Include="ViewModels\OrderDiscountsAddViewModel.cs" />
     <Compile Include="ViewModels\OrderDiscountsViewModel.cs" />
     <Compile Include="ViewModels\OrderItemsViewModel.cs" />
     <Compile Include="ViewModels\OrdersViewModel.cs" />
@@ -211,6 +212,9 @@
     </Compile>
     <Compile Include="Views\NowyTowarView.xaml.cs">
       <DependentUpon>NowyTowarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderDiscountsAddView.xaml.cs">
+      <DependentUpon>OrderDiscountsAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderDiscountsView.xaml.cs">
       <DependentUpon>OrderDiscountsView.xaml</DependentUpon>
@@ -331,6 +335,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NowyTowarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderDiscountsAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
