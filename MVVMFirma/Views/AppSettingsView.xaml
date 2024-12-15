@@ -9,7 +9,7 @@
     <Grid Background="white">
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding List}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Wartość ustawienia" Binding="{Binding SettingKey}" />
+                <DataGridTextColumn Header="Klucz ustawienia" Binding="{Binding SettingKey}" />
                 <DataGridTextColumn Header="Wartość ustawienia" Binding="{Binding SettingValue}" />
             </DataGrid.Columns>
         </DataGrid>

@@ -104,6 +104,9 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Rabaty",
                     new BaseCommand(() => this.AddWorkspaceOne(new OrderDiscountsViewModel()))),
+                new CommandViewModel(
+                    "Kody rabatowe",
+                    new BaseCommand(() => this.AddWorkspaceOne(new DiscountCodesViewModel()))),
 
             };
         }
@@ -189,6 +192,8 @@ namespace MVVMFirma.ViewModels
             if (name == "PowiadomieniaAdd")
                 this.AddWorkspaceOne(new NotificationsAddViewModel());
             if (name == "RabatyAdd")
+                this.AddWorkspaceOne(new OrderDiscountsAddViewModel());
+            if (name == "Kody rabatoweAdd")
                 this.AddWorkspaceOne(new OrderDiscountsAddViewModel());
         }
         #endregion

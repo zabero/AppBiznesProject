@@ -158,6 +158,7 @@
     <Compile Include="ViewModels\CustomerPreferencesViewModel.cs" />
     <Compile Include="ViewModels\CustomersAddViewModel.cs" />
     <Compile Include="ViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\DiscountCodesAddViewModel.cs" />
     <Compile Include="ViewModels\DiscountCodesViewModel.cs" />
     <Compile Include="ViewModels\GetDataFromTable.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -196,6 +197,9 @@
     </Compile>
     <Compile Include="Views\CustomersView.xaml.cs">
       <DependentUpon>CustomersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiscountCodesAddView.xaml.cs">
+      <DependentUpon>DiscountCodesAddView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DiscountCodesView.xaml.cs">
       <DependentUpon>DiscountCodesView.xaml</DependentUpon>
@@ -311,6 +315,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CustomersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiscountCodesAddView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
