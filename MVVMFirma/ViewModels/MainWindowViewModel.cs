@@ -129,6 +129,10 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Raport nieudanych płatności",
                     new BaseCommand(() => this.AddWorkspaceOne(new FailedPaymentsViewModel()))),
+                
+                new CommandViewModel(
+                    "Raport Zakupów Użytkowników",
+                    new BaseCommand(() => this.AddWorkspaceOne(new UserPurchaseViewModel()))),
             };
         }
         #endregion

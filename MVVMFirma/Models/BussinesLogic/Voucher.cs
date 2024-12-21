@@ -19,10 +19,10 @@ namespace MVVMFirma.Models.BussinesLogic
         public IQueryable<KeyAndValue> GetVoucherKeyAndValueItems()
         {
             return db.Vouchers
-                .Select(menu => new KeyAndValue
+                .Select(voucher => new KeyAndValue
                 {
-                    Key = menu.VoucherID,
-                    Value = menu.Name
+                    Key = voucher.VoucherID,
+                    Value = voucher.Name
                 })
                 .AsQueryable();
         }

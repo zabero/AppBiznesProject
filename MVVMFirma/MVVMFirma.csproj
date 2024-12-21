@@ -89,6 +89,7 @@
     <Compile Include="Helper\BaseCommand.cs" />
     <Compile Include="Models\BussinesLogic\DatabaseClass.cs" />
     <Compile Include="Models\BussinesLogic\PaymentLogic.cs" />
+    <Compile Include="Models\BussinesLogic\UserPurchaseLogic.cs" />
     <Compile Include="Models\BussinesLogic\Voucher.cs" />
     <Compile Include="Models\BussinesLogic\VoucherProfit.cs" />
     <Compile Include="Models\EntitiesForView\CustomerPreferencesForAllView.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Models\EntitiesForView\NotificationsForAllViws.cs" />
     <Compile Include="Models\EntitiesForView\OrderDiscountsForAllViews.cs" />
     <Compile Include="Models\EntitiesForView\PaymentsForAllViews.cs" />
+    <Compile Include="Models\EntitiesForView\UserPurchaseSummary.cs" />
     <Compile Include="Models\Entities\AppSettings.cs">
       <DependentUpon>VoucherModels.tt</DependentUpon>
     </Compile>
@@ -182,6 +184,7 @@
     <Compile Include="ViewModels\SalesReportViewModel.cs" />
     <Compile Include="ViewModels\UserAddViewModel.cs" />
     <Compile Include="ViewModels\UserLoginHistoryViewModel.cs" />
+    <Compile Include="ViewModels\UserPurchaseViewModel.cs" />
     <Compile Include="ViewModels\UsersViewModel.cs" />
     <Compile Include="ViewModels\VoucherCategoriesViewModel.cs" />
     <Compile Include="ViewModels\VoucherCategoriesAddViewModel.cs" />
@@ -256,6 +259,9 @@
     </Compile>
     <Compile Include="Views\UserLoginHistoryView.xaml.cs">
       <DependentUpon>UserLoginHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserPurchaseView.xaml.cs">
+      <DependentUpon>UserPurchaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UsersView.xaml.cs">
       <DependentUpon>UsersView.xaml</DependentUpon>
@@ -402,6 +408,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserLoginHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserPurchaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

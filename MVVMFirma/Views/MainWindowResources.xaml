@@ -78,6 +78,10 @@
     <DataTemplate DataType="{x:Type vm:FailedPaymentsViewModel}">
         <vw:FailedPaymentsView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:UserPurchaseViewModel}">
+        <vw:UserPurchaseView/>
+    </DataTemplate>
 
 
 
