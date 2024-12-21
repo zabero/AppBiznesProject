@@ -12,6 +12,8 @@ namespace MVVMFirma.Models.EntitiesForView
         public string Message { get; set; }
         public Nullable<bool> IsRead { get; set; }
         public Nullable<DateTime> CreatedAt { get; set; }
+
+
         public string Username { get; set; }
         public string Role { get; set; }
         public Nullable<DateTime> UserCreatedAt { get; set; }

@@ -56,9 +56,9 @@ namespace MVVMFirma.ViewModels
         {
             get
             {
-                if (_showAppSettings == null)
-                    _showAppSettings = new BaseCommand(() => AddWorkspaceOne(new UserAddViewModel()));
-                return _showAppSettings;
+                if (_showUsers == null)
+                    _showUsers = new BaseCommand(() => AddWorkspaceOne(new UserAddViewModel()));
+                return _showUsers;
             }
         }
 
@@ -122,6 +122,13 @@ namespace MVVMFirma.ViewModels
                 new CommandViewModel(
                     "Płatności",
                     new BaseCommand(() => this.AddWorkspaceOne(new PaymentsViewModel()))),
+                new CommandViewModel(
+                    "Raport sprzedaży vouchera",
+                    new BaseCommand(() => this.AddWorkspaceOne(new SalesReportViewModel()))),
+                
+                new CommandViewModel(
+                    "Raport nieudanych płatności",
+                    new BaseCommand(() => this.AddWorkspaceOne(new FailedPaymentsViewModel()))),
             };
         }
         #endregion

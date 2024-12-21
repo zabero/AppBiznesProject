@@ -69,6 +69,14 @@
     
     <DataTemplate DataType="{x:Type vm:PaymentsAddViewModel}">
         <vw:PaymentsAddView/>
+    </DataTemplate>    
+    
+    <DataTemplate DataType="{x:Type vm:SalesReportViewModel}">
+        <vw:SalesReportView/>
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type vm:FailedPaymentsViewModel}">
+        <vw:FailedPaymentsView/>
     </DataTemplate>
 
 
